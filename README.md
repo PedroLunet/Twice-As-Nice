@@ -25,7 +25,7 @@
 2. Clone the repository:
 
     ```bash
-    git clone https://github.com/davidm-g/Twice-as-Nice-Website.git
+    git clone https://github.com/PedroLunet/Twice-as-Nice.git
     ```
 
 3. Navigate to the main directory:
@@ -46,7 +46,7 @@
 To reset the project’s database to its original state:
 
 ```bash
-cd Twice-as-Nice-Website/database/
+cd Twice-as-Nice/database/
 sqlite3 site.db
 .read create.sql
 .read populate.sql
