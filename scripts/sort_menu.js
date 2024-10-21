@@ -1,0 +1,109 @@
+const sort_btn = document.getElementById('sort_btn');
+
+sort_btn.addEventListener('click', function() {
+    const formData = new FormData();
+    if(sort_btn.className == "fa-solid fa-sort-down") {
+        sort_btn.className = "fa-solid fa-sort-up";
+        const direction = '0';
+        formData.append('direction', direction);
+    }
+    else {
+        sort_btn.className = "fa-solid fa-sort-down";
+        const direction = '1';
+        formData.append('direction', direction);
+    }
+    fetch('apis/api_sort_items.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    
+    fetch('apis/api_updateItems.php', {
+        method: 'POST'
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+        document.getElementById('random_items').innerHTML = data;
+        attachWishlistListeners();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+
+const orders = document.querySelectorAll('[id^="order"]');
+
+const reset = document.getElementById('reset_order');
+
+orders.forEach(order => {
+    order.addEventListener('click', async function() {
+        const sortId = order.id.replace('order', '');
+        const formData = new FormData();
+        formData.append('sortOrder', sortId);
+        fetch('apis/api_sort_items.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            reset.style.display = 'flex';
+            orders.forEach(order => {
+                order.style.backgroundColor = 'transparent';
+            });
+            order.style.backgroundColor = '#C9ADA7';
+            
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+});
+
+async function resetFilters() {
+    const formData = new FormData();
+    formData.append('sortOrder', '0');
+    fetch('apis/api_sort_items.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        reset.style.display = 'none';
+        orders.forEach(order => {
+            order.style.backgroundColor = 'transparent';
+        });
+        attachWishlistListeners();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+
+reset.addEventListener('click', resetFilters);
+
+const parent = document.getElementById('sort_options');
+const children = parent.children;
+
+for (let i = 0; i < children.length; i++) {
+    children[i].addEventListener('click', function() {
+        fetch('apis/api_updateItems.php', {
+            method: 'POST'
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            document.getElementById('random_items').innerHTML = data;
+            attachWishlistListeners();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+}

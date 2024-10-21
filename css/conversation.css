@@ -1,0 +1,48 @@
+.conversation-container {
+    display: flex;
+    flex-direction: column;
+    margin: 5% 8% 5% 8%; 
+}
+
+.conversation {
+    background-color: #C9ADA7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.conversation h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: bold; 
+    color: #4A4E69; 
+}
+
+.conversation a {
+    color: #4A4E69;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.conversation a:hover {
+    color: #22223B; 
+}
+
+.conversation p {
+    font-size: 16px; 
+    margin-top: 5px;
+    color: #4A4E69; 
+}
+
+.conversation.not-available {
+    background-color: #F4EAD3; 
+    color: #dc3545; 
+    font-weight: bold;
+}
+
+.conversation:hover {
+    box-shadow: 0 0px 8px rgba(0, 0, 0, 0.2); 
+    background-color: #bea59f; 
+}

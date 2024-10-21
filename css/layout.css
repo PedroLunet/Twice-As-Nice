@@ -1,0 +1,141 @@
+/* main layout */
+
+/* header layout */
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+}
+
+header {
+    height: 130px;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-rows: 130px 0;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.logreg {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    grid-column: 3/3;
+
+}
+
+body > header > #searchbar {
+    display: flex;
+    margin: auto;
+    width: 100%;
+}
+
+body > header > h1 > a {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* navigation layout */
+
+nav ul {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    width: 90%;
+    height: 70px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav li {
+    text-align: center;
+    list-style-type: none;
+    margin: 0 20px 0 20px;
+    padding: 10px;
+}
+
+/* main layout */
+
+
+main h1 {
+    padding-left: 2.5%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#random_items, #cat_items {
+    flex-grow: 2;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* modal boxes */
+
+#registerfields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: space-between;
+    margin: auto;
+    justify-content: space-around;
+}
+
+#loginfields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    padding-top: 80px;
+    justify-content: space-between;
+    margin: auto;
+    gap: 80px;
+    justify-content: space-around;
+}
+
+#loginfields button, #registerfields button {
+    position: absolute;
+    bottom: 10%;
+}
+
+[id^="item-container-"] {
+    width: 20%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    align-content: stretch;
+}
+
+[id^="manage-item-"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    justify-content: space-between;
+    margin: auto;
+    justify-content: space-around;
+}
+
+[id^="new-price-"] {
+    margin: 3%;
+    margin-bottom: 0;
+}
+
+#messageText, #proposalPrice {
+    margin: auto auto 0.5% auto;
+}
