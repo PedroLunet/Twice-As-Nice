@@ -1,85 +1,128 @@
-# Twice as Nice
 
-## Group ltw15g10
+# Twice as Nice  
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" title="HTML" alt="HTML Logo" width="55" height="55" align="right" />&nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" title="CSS" alt="CSS Logo" width="55" height="55" align="right" />&nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript Logo" width="55" height="55" align="right" />&nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" title="PHP" alt="PHP Logo" width="55" height="55" align="right" />&nbsp;
 
-- Tomás Marques (up202206667) 33%
-- David Gonçalves (up202208795) 33%
-- João Lunet (up202207150) 33%
+### Collaborators  
+- [Tomás Marques](https://github.com/Torpedoooo)  
+- [David Gonçalves](https://github.com/davidm-g)  
 
-## Install Instructions
+## Grade: 15.9/20
 
-    git clone git@github.com:FEUP-LTW-2024/ltw-project-2024-ltw15g10.git
-    cd ltw-project-2024-ltw15g10/
+### Overview
+**Twice as Nice** is a second-hand shopping website that dynamically generates PHP pages and uses an SQLite database, structured around two main SQL files. This project was developed for the *Web Languages and Technologies* course during the 2nd year of the L.EIC program.
+
+- **HTML** and **CSS** handle the page structure and styling, ensuring a responsive design.
+- **JavaScript** enhances interactivity, enabling features like live search via Ajax and asynchronous data updates.
+
+### Installation & Setup
+
+1. Install SQLite3 and PHP:
+
+    ```bash
+    sudo apt-get install php-cli sqlite3 php-sqlite3 unzip wget
+    ```
+
+2. Clone the repository:
+
+    ```bash
+    git clone https://github.com/PedroLunet/Twice-as-Nice.git
+    ```
+
+3. Navigate to the main directory:
+
+    ```bash
+    cd Twice-as-Nice
+    ```
+
+4. Start a local server:
+
+    ```bash
     php -S localhost:9000
-    open the "localhost:9000" URL on your browser
+    ```
 
-## External Libraries
+5. Open your browser and go to `localhost:9000` to explore the website.
 
-We have used the following external libraries:
+#### Database Reset (Optional)
+To reset the project’s database to its original state:
 
-- Font Awesome
+```bash
+cd Twice-as-Nice/database/
+sqlite3 site.db
+.read create.sql
+.read populate.sql
+.exit
+```
+
+### Project Documentation  
+For detailed project requirements and setup, refer to the [Project Description](/docs/instructions.pdf).
 
 ## Screenshots
 
-### Main Page
-![](/docs/SCREENSHOT_1.png)
+#### Main Page  
+![Main Page](/docs/SCREENSHOT_1.png)
 
-### Register new account page
-![](/docs/SCREENSHOT_2.png)
+#### Register New Account  
+![Register Page](/docs/SCREENSHOT_2.png)
 
-### Messages screen
-![](/docs/SCREENSHOT_3.png)
+#### Messages Screen  
+![Messages Screen](/docs/SCREENSHOT_3.png)
 
-## Implemented Features
+## External Libraries
+
+The project utilizes the following external library:
+
+- [Font Awesome](https://fontawesome.com/) for icons.
+
+## Features
 
 **General**:
+- [X] User registration and login system.
+- [X] Profile management (name, username, password, email).
 
-- [X] Register a new account.
-- [X] Log in and out.
-- [X] Edit their profile, including their name, username, password, and email.
+**For Sellers**:
+- [X] List new items (category, brand, model, size, condition, images).
+- [X] Manage listed items.
+- [X] Respond to buyer inquiries.
+- [X] Print shipping forms for sold items.
 
-**Sellers**  should be able to:
+**For Buyers**:
+- [X] Browse items with filters (category, price, condition).
+- [X] Interact with sellers (questions, price negotiation).
+- [X] Add items to wishlist or cart.
+- [X] Simulate a checkout process.
 
-- [X] List new items, providing details such as category, brand, model, size, and condition, along with images.
-- [X] Track and manage their listed items.
-- [X] Respond to inquiries from buyers regarding their items and add further information if needed.
-- [X] Print shipping forms for items that have been sold.
+**For Admins**:
+- [X] Promote users to admin.
+- [X] Manage item categories, sizes, conditions.
+- [X] Monitor system functionality.
 
-**Buyers**  should be able to:
+**Security Measures**:
+- [X] **SQL Injection** prevention.
+- [X] **Cross-Site Scripting (XSS)** protection.
+- [X] **Cross-Site Request Forgery (CSRF)** protection.
 
-- [X] Browse items using filters like category, price, and condition.
-- [X] Engage with sellers to ask questions or negotiate prices.
-- [X] Add items to a wishlist or shopping cart.
-- [X] Proceed to checkout with their shopping cart (simulate payment process).
+**Password Encryption**:
+- We use the `PASSWORD_DEFAULT` (bcrypt algorithm) for secure password storage.
 
-**Admins**  should be able to:
+## Additional Features & Future Enhancements
 
-- [X] Elevate a user to admin status.
-- [X] Introduce new item categories, sizes, conditions, and other pertinent entities.
-- [X] Oversee and ensure the smooth operation of the entire system.
+- [X] User Preferences.
+- [X] Real-Time Messaging System.
+- [ ] Rating and Review System.
+- [ ] Promotional Features.
+- [ ] Analytics Dashboard.
+- [ ] Multi-Currency Support.
+- [ ] Item Swapping.
+- [ ] API Integration.
+- [ ] Dynamic Promotions.
+- [ ] Shipping Cost Calculation.
 
-**Security**:
-We have been careful with the following security aspects:
+## Contact
 
-- [X] **SQL injection**
-- [X] **Cross-Site Scripting (XSS)**
-- [X] **Cross-Site Request Forgery (CSRF)**
+Pedro Lunet | [pedrolunet@gmail.com](mailto:pedrolunet@gmail.com)
 
-**Password Storage Mechanism**: 
-
-    PASSWORD_DEFAULT --> bcrypt algorithm (default as of PHP 5.5.0)
-
-**Aditional Requirements**:
-
-We also implemented the following additional requirements (you can add more):
-
-- [ ] **Rating and Review System**
-- [ ] **Promotional Features**
-- [ ] **Analytics Dashboard**
-- [ ] **Multi-Currency Support**
-- [ ] **Item Swapping**
-- [ ] **API Integration**
-- [ ] **Dynamic Promotions**
-- [X] **User Preferences**
-- [ ] **Shipping Costs**
-- [X] **Real-Time Messaging System**
+<div id="badge"> 
+    <a href="https://www.linkedin.com/in/pedro-lunet-680273163/">
+        <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+    </a>
+</div>
